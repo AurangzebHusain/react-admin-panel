@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 const initialState = {
   chart: false,
   cart: false,
@@ -15,6 +15,17 @@ export const ContextProvider = ({ children }) => {
   const [currentColor, setCurrentColor] = useState("#03C9D7");
   const [currentMode, setcurrentMode] = useState("Light");
   const [themeSettings, setThemeSettings] = useState(false);
+
+  useEffect(() => {
+    const themeMode_storge = localStorage.getItem("themeMode");
+    const themeColor_storage = localStorage.getItem("themeColor");
+    if (themeColor_storage) {
+      setCurrentColor(themeColor_storage);
+    }
+    if (themeMode_storge) {
+      setcurrentMode(themeMode_storge);
+    }
+  }, []);
 
   const setMode = (e) => {
     console.log(e.target.value);
