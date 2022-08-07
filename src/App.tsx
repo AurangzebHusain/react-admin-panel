@@ -26,11 +26,16 @@ import {
 import { Navbar, Sidebar, Stacked, ThemeSettings } from "./components";
 import { StateContext } from "./contexts/contextProvider";
 function App() {
-  const { activeMenu, themeSettings, setThemeSettings, currentColor } =
-    useContext(StateContext);
+  const {
+    activeMenu,
+    themeSettings,
+    setThemeSettings,
+    currentColor,
+    currentMode,
+  } = useContext(StateContext);
 
   return (
-    <div className="App">
+    <div className={`${currentMode === "Dark" ? "dark" : ""}`}>
       <div className="flex relative dark:bg-main-dark-bg">
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
           <TooltipComponent content="settings" position="TopCenter">
@@ -56,7 +61,7 @@ function App() {
         )}
 
         <div
-          className={`dark:bg-main-bg bg-main-bg  min-h-screen ${
+          className={`dark:bg-main-dark-bg bg-main-bg  min-h-screen ${
             activeMenu ? "md:ml-72" : ""
           } w-full`}
         >
