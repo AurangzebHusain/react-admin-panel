@@ -168,8 +168,8 @@ export const areaPrimaryXAxis = {
   valueType: "DateTime",
   labelFormat: "y",
   majorGridLines: { width: 0 },
-  intervalType: "Years",
-  edgeLabelPlacement: "Shift",
+  // intervalType: "Years",
+  // edgeLabelPlacement: "Shift",
   labelStyle: { color: "gray" },
 };
 
